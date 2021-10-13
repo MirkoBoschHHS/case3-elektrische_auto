@@ -10,8 +10,8 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import os
 from streamlit_folium import folium_static
-# import folium
-# from glob import glob
+import folium
+
 
 import Get_data
 import Figuren
