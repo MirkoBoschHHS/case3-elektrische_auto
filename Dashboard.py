@@ -132,7 +132,7 @@ if(country == "NL"):
     col1, col2 = st.columns([1,2])
     col2.plotly_chart(Figuren.bar_chart_laadpalen(response_dataframe))
     col2.plotly_chart(Figuren.lijn_laadpalen(response_dataframe))
-    print_text("7 - Laadpunten Nederland.txt.txt", col1)
+    print_text("7 - Laadpunten Nederland.txt", col1)
 
 
 
