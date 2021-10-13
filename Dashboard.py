@@ -83,7 +83,7 @@ if True:
     bar.progress(100)
     bar.empty()
 
-
+del response_dataframe
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
@@ -127,7 +127,7 @@ if True:
 
 
 
-if(country == "NL" and True):
+if(country == "NL" and False):
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Laadpunten verdeling per provincie")
@@ -137,6 +137,7 @@ if(country == "NL" and True):
     print_text("7 - Laadpunten Nederland.txt", col1)
 else:
     st.write("Dit is het einde, selecteer landcode NL voor meer. Nu geselecteerd: " + str(country))
+
 
 
 st.write("Done")
