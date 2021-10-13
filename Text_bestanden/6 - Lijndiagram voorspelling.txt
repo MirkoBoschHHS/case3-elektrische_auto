@@ -1,2 +1,1 @@
-Hallo dit is een regel tekst.
-Dit is de tweede regel.
+Om deze grafiek te maken is de formule van de regressielijn overgenomen. Deze formule geeft voorspellingen voor de verhouding van het aantal elektrische auto's / aantal niet-elektrische auto's. Vervolgens zijn de verhoudingen omgerekend naar percentages. Het lijndiagram geeft per jaar weer hoeveel procent van de auto's die er in dat jaar bij komen elektrisch zal zijn. De voorspelling is dus dat er rond 2050 geen auto's meer bij komen die op fossiele brandstoffen rijden. 

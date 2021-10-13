@@ -1,2 +1,1 @@
-Hallo dit is een regel tekst.
-Dit is de tweede regel.
+Dit lijndiagram geeft de cumulatieve som van het aantal auto's weer per brandstofcategorie per maand. Zo kan men bijvoorbeeld aflezen dat er op dit moment ongeveer 8 miljoen benzine-auto's rondrijden en ongeveer 1 miljoen dieselauto's die geregistreerd zijn vóór 2014.  
