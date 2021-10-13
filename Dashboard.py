@@ -70,9 +70,9 @@ if True:
     provider_choice = col1.multiselect(
         "Kies een provider", providers, providers)
 
-    response_dataframe_choice = response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)]
+    # response_dataframe_choice = response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)]
 
-    m, bar = Figuren.map_folium(response_dataframe_choice, max_results)
+    m, bar = Figuren.map_folium(response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)], max_results)
 
     # print_text(col1, '2 - Laadtijd auto.txt')
     print_text("2 - Laadtijd auto.txt", col1)
@@ -103,6 +103,7 @@ col1, col2 = st.columns([1,2])
 col2.plotly_chart(Figuren.percentage_auto_soort(autos_per_maand_cum))
 print_text("4 - Percentage auto.txt", col1)
 
+del autos_per_maand_cum
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
