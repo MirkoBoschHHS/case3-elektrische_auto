@@ -83,6 +83,19 @@ if True:
     bar.progress(100)
     bar.empty()
 
+
+if(country == "NL" and True):
+    st.markdown("""---""")
+    # ---------- Voeg de map van locaties toe ----------
+    st.header("Laadpunten verdeling per provincie")
+    col1, col2 = st.columns([1,2])
+    col2.plotly_chart(Figuren.bar_chart_laadpalen(response_dataframe))
+    col2.plotly_chart(Figuren.lijn_laadpalen(response_dataframe))
+    print_text("7 - Laadpunten Nederland.txt", col1)
+else:
+    st.write("Dit is het einde, selecteer landcode NL voor meer. Nu geselecteerd: " + str(country))
+
+
 del response_dataframe
 
 st.markdown("""---""")
@@ -127,16 +140,7 @@ if False:
 
 
 
-if(country == "NL" and False):
-    st.markdown("""---""")
-    # ---------- Voeg de map van locaties toe ----------
-    st.header("Laadpunten verdeling per provincie")
-    col1, col2 = st.columns([1,2])
-    col2.plotly_chart(Figuren.bar_chart_laadpalen(response_dataframe))
-    col2.plotly_chart(Figuren.lijn_laadpalen(response_dataframe))
-    print_text("7 - Laadpunten Nederland.txt", col1)
-else:
-    st.write("Dit is het einde, selecteer landcode NL voor meer. Nu geselecteerd: " + str(country))
+
 
 
 
