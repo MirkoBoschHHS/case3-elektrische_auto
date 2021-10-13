@@ -1,2 +1,1 @@
-Hallo dit is een regel tekst.
-Dit is de tweede regel.
+Deze grafiek is vergelijkbaar met het vorige lijndiagram, alleen zijn de waarden hier omgerekend naar percentages. Het is zo iets makkelijker om de verschillende brandstofcategorieën met elkaar te vergelijken. 
