@@ -57,31 +57,31 @@ print_text("1 - Laadtijd auto.txt", col1)
 col2.plotly_chart(Figuren.histogram_laadtijd_elek_auto(laadpaal_data))
 
 
+if True:
+    st.markdown("""---""")
+    # ---------- Voeg de map van locaties toe ----------
+    st.header("Locatie laadpalen")
+    col1, col2 = st.columns([1,2])
+    response_dataframe, country = Get_data.OpenChargeMap(col1, max_results)
 
-st.markdown("""---""")
-# ---------- Voeg de map van locaties toe ----------
-st.header("Locatie laadpalen")
-col1, col2 = st.columns([1,2])
-response_dataframe, country = Get_data.OpenChargeMap(col1, max_results)
 
+    providers = response_dataframe['OperatorInfo.Title'].unique()
 
-providers = response_dataframe['OperatorInfo.Title'].unique()
+    provider_choice = col1.multiselect(
+        "Kies een provider", providers, providers)
 
-provider_choice = col1.multiselect(
-    "Kies een provider", providers, providers)
+    response_dataframe_choice = response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)]
 
-response_dataframe_choice = response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)]
+    m, bar = Figuren.map_folium(response_dataframe_choice, max_results)
 
-m, bar = Figuren.map_folium(response_dataframe_choice, max_results)
+    # print_text(col1, '2 - Laadtijd auto.txt')
+    print_text("2 - Laadtijd auto.txt", col1)
 
-# print_text(col1, '2 - Laadtijd auto.txt')
-print_text("2 - Laadtijd auto.txt", col1)
-
-bar.progress(99)
-with col2:
-    folium_static(m)
-bar.progress(100)
-bar.empty()
+    bar.progress(99)
+    with col2:
+        folium_static(m)
+    bar.progress(100)
+    bar.empty()
 
 
 
@@ -89,9 +89,9 @@ st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
 st.header("Aantal soorten auto's")
 col1, col2 = st.columns([1,2])
-autos_per_maand_cum, rdw_data = Get_data.rdw_data()
+autos_per_maand_cum, rdw_data, rdw_data_2004 = Get_data.rdw_data()
 fig = Figuren.lijn(autos_per_maand_cum)
-col2.write("Plotting figure...")
+
 col2.plotly_chart(fig)
 print_text("3 - Lijndiagram cumulatief.txt", col1)
 
@@ -100,14 +100,13 @@ st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
 st.header("Verdeling auto soorten")
 col1, col2 = st.columns([1,2])
-col1.write("Hier nog een tekst of interactie")
 col2.plotly_chart(Figuren.percentage_auto_soort(autos_per_maand_cum))
 print_text("4 - Percentage auto.txt", col1)
 
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-st.header("Verhouden elektrische/niet-elektrische auto's")
+st.header("Verhouding elektrische/niet-elektrische auto's")
 col1, col2 = st.columns([1,2])
 col2.plotly_chart(Figuren.spreiding(rdw_data))
 print_text("5 - Spreidingsdiagram.txt", col1)
@@ -116,7 +115,7 @@ print_text("5 - Spreidingsdiagram.txt", col1)
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-st.header("Voorspelling")
+st.header("Voorspelling percntage elektrische auto's")
 col1, col2 = st.columns([1,2])
 col2.plotly_chart(Figuren.voorspelling())
 print_text("6 - Lijndiagram voorspelling.txt", col1)
@@ -124,8 +123,7 @@ print_text("6 - Lijndiagram voorspelling.txt", col1)
 
 
 
-
-if(country == "NL" and False):
+if(country == "NL"):
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Laadpunten verdeling per provincie")
@@ -133,7 +131,8 @@ if(country == "NL" and False):
     col2.plotly_chart(Figuren.bar_chart_laadpalen(response_dataframe))
     col2.plotly_chart(Figuren.lijn_laadpalen(response_dataframe))
     print_text("7 - Laadpunten Nederland.txt", col1)
-
+else:
+    st.write("Dit is het einde, selecteer landcode NL voor meer. Nu geselecteerd: " + str(country))
 
 
 
