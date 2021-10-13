@@ -15,8 +15,8 @@ def histogram_laadtijd_elek_auto(laadpaal_data):
                              group_labels=['Aangesloten tijd', 'Laadtijd'],
                              bin_size=0.25,  # elke bin komt overeen met 15 minuten
                              show_rug=False,
-                             curve_type='kde',
-                             histnorm='probability density')#,
+                             curve_type='kde')#,
+                             #histnorm='probability density')#,
                              #colors=['mediumblue', 'dodgerblue'])
 
     annotation_gem1 = {'xref': 'paper',
