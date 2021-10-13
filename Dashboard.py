@@ -127,7 +127,7 @@ if False:
 
 
 
-if(country == "NL" and False):
+if(country == "NL" and True):
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Laadpunten verdeling per provincie")
