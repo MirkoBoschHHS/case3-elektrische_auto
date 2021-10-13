@@ -60,8 +60,7 @@ col2.plotly_chart(Figuren.histogram_laadtijd_elek_auto(laadpaal_data))
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-title, lines = print_text(2)
-st.header(title)
+st.header("Een title")
 col1, col2 = st.columns([1,2])
 response_dataframe, country = Get_data.OpenChargeMap(col1, max_results)
 
@@ -75,9 +74,8 @@ response_dataframe_choice = response_dataframe.loc[response_dataframe['OperatorI
 
 m, bar = Figuren.map_folium(response_dataframe_choice, max_results)
 
-# print_text(col1, '2 - Waar bevinden openbare laadstations van Open Chargemap.txt')
-for row in lines:
-    col1.write(row)
+# print_text(col1, '2 - Laadtijd auto.txt')
+print_text("2 - Laadtijd auto.txt", col1)
 
 bar.progress(99)
 with col2:
@@ -89,47 +87,43 @@ bar.empty()
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-title, lines = print_text(3)
-st.header(title)
+st.header("Een title")
 col1, col2 = st.columns([1,2])
 autos_per_maand_cum, rdw_data = Get_data.rdw_data()
 fig = Figuren.lijn(autos_per_maand_cum)
 col2.write("Plotting figure...")
 col2.plotly_chart(fig)
-for row in lines:
-    col1.write(row)
+print_text("3 - Lijndiagram cumulatief.txt", col1)
 
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-title, lines = print_text(4)
-st.header(title)
+st.header("Een title")
 col1, col2 = st.columns([1,2])
 col1.write("Hier nog een tekst of interactie")
 col2.plotly_chart(Figuren.percentage_auto_soort(autos_per_maand_cum))
-for row in lines:
-    col1.write(row)
+print_text("4 - Percentage auto.txt", col1)
 
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-title, lines = print_text(5)
-st.header(title)
+st.header("Een title")
 col1, col2 = st.columns([1,2])
 col2.plotly_chart(Figuren.spreiding(rdw_data))
-for row in lines:
-    col1.write(row)
+print_text("5 - Spreidingsdiagram.txt", col1)
 
 
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-title, lines = print_text(6)
-st.header(title)
+st.header("Een title")
 col1, col2 = st.columns([1,2])
 col2.plotly_chart(Figuren.voorspelling())
-for row in lines:
-    col1.write(row)
+print_text("6 - Lijndiagram voorspelling.txt", col1)
+
+
+
+
 
 if(country == "NL"):
     st.markdown("""---""")
@@ -139,8 +133,7 @@ if(country == "NL"):
     col1, col2 = st.columns([1,2])
     col2.plotly_chart(Figuren.bar_chart_laadpalen(response_dataframe))
     col2.plotly_chart(Figuren.lijn_laadpalen(response_dataframe))
-    for row in lines:
-        col1.write(row)
+    print_text("7 - Laadpunten Nederland.txt.txt", col1)
 
 
 
