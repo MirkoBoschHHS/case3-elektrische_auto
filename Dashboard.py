@@ -1,14 +1,14 @@
 import streamlit as st
 import pandas as pd
-# import numpy as np
-# import requests
-# import plotly.figure_factory as ff
-# import plotly.express as px
-# import io
-# import time
-# import plotly.graph_objects as go
-# from plotly.subplots import make_subplots
-# import os
+import numpy as np
+import requests
+import plotly.figure_factory as ff
+import plotly.express as px
+import io
+import time
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import os
 from streamlit_folium import folium_static
 # import folium
 # from glob import glob
@@ -96,7 +96,7 @@ col2.plotly_chart(fig)
 print_text("3 - Lijndiagram cumulatief.txt", col1)
 
 
-if False:
+if True:
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Verdeling auto soorten")
@@ -106,7 +106,7 @@ if False:
 
 del autos_per_maand_cum
 
-if False:
+if True:
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Verhouding elektrische/niet-elektrische auto's")
@@ -116,7 +116,7 @@ if False:
 
 del rdw_data
 
-if False:
+if True:
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Voorspelling percntage elektrische auto's")
@@ -127,7 +127,7 @@ if False:
 
 
 
-if(country == "NL" and False):
+if(country == "NL" and True):
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Laadpunten verdeling per provincie")
