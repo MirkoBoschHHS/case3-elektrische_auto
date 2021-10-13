@@ -42,7 +42,7 @@ def print_text(file_nr):
         dname = os.path.dirname(abspath)
         os.chdir(dname)
 
-        files = str(glob('Text_bestanden/' + str(file_nr) + ' -*'))
+        files = str(glob('https://github.com/MirkoBoschHHS/case3-elektrische_auto/tree/main/Text_bestanden/' + str(file_nr) + ' -*'))
         file = files.split("\\")[-1].replace("\"]", "").replace("']", "")
         title = file.replace(".txt", "").split("-")[-1]
 
