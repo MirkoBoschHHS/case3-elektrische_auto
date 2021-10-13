@@ -96,35 +96,38 @@ col2.plotly_chart(fig)
 print_text("3 - Lijndiagram cumulatief.txt", col1)
 
 
-st.markdown("""---""")
-# ---------- Voeg de map van locaties toe ----------
-st.header("Verdeling auto soorten")
-col1, col2 = st.columns([1,2])
-col2.plotly_chart(Figuren.percentage_auto_soort(autos_per_maand_cum))
-print_text("4 - Percentage auto.txt", col1)
+if False:
+    st.markdown("""---""")
+    # ---------- Voeg de map van locaties toe ----------
+    st.header("Verdeling auto soorten")
+    col1, col2 = st.columns([1,2])
+    col2.plotly_chart(Figuren.percentage_auto_soort(autos_per_maand_cum))
+    print_text("4 - Percentage auto.txt", col1)
 
 del autos_per_maand_cum
 
-st.markdown("""---""")
-# ---------- Voeg de map van locaties toe ----------
-st.header("Verhouding elektrische/niet-elektrische auto's")
-col1, col2 = st.columns([1,2])
-col2.plotly_chart(Figuren.spreiding(rdw_data))
-print_text("5 - Spreidingsdiagram.txt", col1)
+if False:
+    st.markdown("""---""")
+    # ---------- Voeg de map van locaties toe ----------
+    st.header("Verhouding elektrische/niet-elektrische auto's")
+    col1, col2 = st.columns([1,2])
+    col2.plotly_chart(Figuren.spreiding(rdw_data))
+    print_text("5 - Spreidingsdiagram.txt", col1)
 
 del rdw_data
 
-st.markdown("""---""")
-# ---------- Voeg de map van locaties toe ----------
-st.header("Voorspelling percntage elektrische auto's")
-col1, col2 = st.columns([1,2])
-col2.plotly_chart(Figuren.voorspelling())
-print_text("6 - Lijndiagram voorspelling.txt", col1)
+if False:
+    st.markdown("""---""")
+    # ---------- Voeg de map van locaties toe ----------
+    st.header("Voorspelling percntage elektrische auto's")
+    col1, col2 = st.columns([1,2])
+    col2.plotly_chart(Figuren.voorspelling())
+    print_text("6 - Lijndiagram voorspelling.txt", col1)
 
 
 
 
-if(country == "NL"):
+if(country == "NL" and False):
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Laadpunten verdeling per provincie")
@@ -136,4 +139,4 @@ else:
     st.write("Dit is het einde, selecteer landcode NL voor meer. Nu geselecteerd: " + str(country))
 
 
-
+st.write("Done")
