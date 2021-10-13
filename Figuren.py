@@ -310,7 +310,7 @@ def lijn(autos_per_maand_cum):
                               'Maand': True},
                   title="Lijndiagram cumulatieve som aantal auto's per brandstofcategorie vs. tijd in jaren")
     fig.update_layout(xaxis=dict(
-        rangeslider=dict(visible=True), range=[2004, 2022]))
+        rangeslider=dict(visible=True), range=[1995, 2022]))
     fig.update_layout(
         autosize=False,
         width=breed,
@@ -350,6 +350,8 @@ def percentage_auto_soort(autos_per_maand_cum):
         autosize=False,
         width=breed,
         height=hoog, )
+    fig.update_layout(xaxis=dict(
+        rangeslider=dict(visible=True, range=[2004,202]), range=[2004, 2022]))
     return fig
     # fig.show()
 
