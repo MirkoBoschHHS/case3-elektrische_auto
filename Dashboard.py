@@ -36,34 +36,24 @@ laadpaal_data = Get_data.load_csv_laadpaal_data('laadpaaldata.csv')
 
 
 
-def print_text(file_nr):
-    try:
-        abspath = os.path.abspath(__file__)
-        dname = os.path.dirname(abspath)
-        os.chdir(dname)
+def print_text(file, col):
+    # files = str(glob('Text_bestanden/' + str(file)))
+    # file = files.split("\\")[-1].replace("\"]", "").replace("']", "")
+    # title = file.replace(".txt", "").split("-")[-1]
 
-        files = str(glob('Text_bestanden/' + str(file_nr) + ' -*'))
-        file = files.split("\\")[-1].replace("\"]", "").replace("']", "")
-        title = file.replace(".txt", "").split("-")[-1]
+    with open('Text_bestanden/' + file) as f:
+        lines = f.readlines()
 
-        with open('Text_bestanden/' + file) as f:
-            lines = f.readlines()
-
-        return title, lines
-    except:
-        return "NO TITLE", "NO TEXT"
-    # for row in lines:
-    #     col.write(row)
+    for row in lines:
+        col.write(row)
 
 
 
 
 # ---------- Histogram van laadtijd ----------
-title, lines = print_text(1)
-st.header(title)
+st.header("Een title")
 col1, col2 = st.columns([1,2])
-for row in lines:
-    col1.write(row)
+print_text("1 - Laadtijd auto.txt")
 col2.plotly_chart(Figuren.histogram_laadtijd_elek_auto(laadpaal_data))
 
 
