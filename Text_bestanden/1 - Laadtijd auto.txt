@@ -1,3 +1,1 @@
-Het histogram hiernaast geeft de laadtijd en aangesloten tijd van elektrische auto's weer. 
-De laadtijd is de tijd dat er daadwerkelijk stroom geladen wordt en de aangesloten tijd is de tijd
-dat de auto alleen verbonden is met een laadpaal. 
+Het histogram hiernaast geeft de laadtijd en aangesloten tijd van elektrische auto's weer. De laadtijd is de tijd dat er daadwerkelijk stroom geladen wordt en de aangesloten tijd is de tijd dat de auto alleen verbonden is met een laadpaal. 
