@@ -68,7 +68,7 @@ def rdw_data():
   rdw_data.drop(columns=['Unnamed: 0'], inplace=True)
   rdw_data['Teller'] = 1
   rdw_data[rdw_data['Brandstof'] == 'Elektriciteit'].groupby('Jaar')['Teller'].sum()
-  rdw_data = rdw_data[rdw_data['Jaar'] >= 2004]
+  rdw_data_2004 = rdw_data[rdw_data['Jaar'] >= 2004].copy()
   rdw_data['Brandstof'].value_counts()
   rdw_data.Brandstof = rdw_data.Brandstof.str.replace('CNG', 'Overig')
   rdw_data.Brandstof = rdw_data.Brandstof.str.replace('LNG', 'Overig')
@@ -78,5 +78,5 @@ def rdw_data():
   autos_per_maand_cum = pd.DataFrame(autos_per_maand.groupby('Brandstof')['Teller'].cumsum())
   autos_per_maand_cum.rename(columns={'Teller': 'Cumulatief'})
 
-  return autos_per_maand_cum, rdw_data
+  return autos_per_maand_cum, rdw_data, rdw_data_2004
 
