@@ -8,6 +8,7 @@ countries = ['NL', 'FR', 'DE', 'BE']
 
 response_dataframe = 0
 
+
 def OpenChargeMap(col, max_results=50):
   global response_dataframe
   # Max results to load with api
@@ -35,7 +36,7 @@ def OpenChargeMap(col, max_results=50):
   # st.write(url)
   return response_dataframe, country
 
-
+@st.cache
 def load_csv_laadpaal_data(path):
   # Data inladen
   for i in range(0, 2):
@@ -61,6 +62,7 @@ def load_csv_laadpaal_data(path):
   # Terug sturen van de data
   return laadpaal_data
 
+@st.cache
 def rdw_data():
   # rdw_data = pd.read_csv('rdw_data.csv')
   rdw_data = pd.read_parquet('rdw_data.gzip')

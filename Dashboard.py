@@ -24,7 +24,7 @@ pd.set_option('display.max_columns', None) # Print alles van de DataFrame pandas
 try:
     max_results = st.secrets["max_results"]
 except:
-    max_results = 80
+    max_results = 1500
 
 # Maak een titel
 st.title('Dashboard elektrische auto\'s')
@@ -32,7 +32,6 @@ st.title('Dashboard elektrische auto\'s')
 
 # Get data from API / CSV
 laadpaal_data = Get_data.load_csv_laadpaal_data('laadpaaldata.csv')
-
 
 
 
@@ -46,6 +45,7 @@ def print_text(file, col):
 
     for row in lines:
         col.write(row)
+
 
 
 
@@ -93,7 +93,7 @@ if(country == "NL" and True):
     col2.plotly_chart(Figuren.lijn_laadpalen(response_dataframe))
     print_text("7 - Laadpunten Nederland.txt", col1)
 else:
-    st.write("Dit is het einde, selecteer landcode NL voor meer. Nu geselecteerd: " + str(country))
+    st.write("Alleen landcode supported voor meer informatie. Nu geselecteerd: " + str(country))
 
 
 del response_dataframe
@@ -129,14 +129,13 @@ if True:
 
 del rdw_data
 
-if False:
+if True:
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Voorspelling percntage elektrische auto's")
     col1, col2 = st.columns([1,2])
     col2.plotly_chart(Figuren.voorspelling())
     print_text("6 - Lijndiagram voorspelling.txt", col1)
-
 
 
 

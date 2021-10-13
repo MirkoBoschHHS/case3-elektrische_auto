@@ -442,6 +442,7 @@ def voorspelling():
         height=hoog, )
     return fig
 
+
 def bar_chart_laadpalen(openCharge):
     openChargeFiltered = openCharge[['AddressInfo.Town', 'NumberOfPoints', 'DateCreated', 'OperatorInfo.Title']]
     openChargeFilteredDropped = openChargeFiltered.dropna(
