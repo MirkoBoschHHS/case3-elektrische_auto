@@ -62,7 +62,7 @@ def load_csv_laadpaal_data(path):
   # Terug sturen van de data
   return laadpaal_data
 
-@st.cache
+@st.cache(suppress_st_warning=True)
 def rdw_data():
   # rdw_data = pd.read_csv('rdw_data.csv')
   rdw_data = pd.read_parquet('rdw_data.gzip')
