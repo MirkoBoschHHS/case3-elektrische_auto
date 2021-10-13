@@ -89,7 +89,7 @@ st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
 st.header("Aantal soorten auto's")
 col1, col2 = st.columns([1,2])
-autos_per_maand_cum, rdw_data, rdw_data_2004 = Get_data.rdw_data()
+autos_per_maand_cum, rdw_data = Get_data.rdw_data()
 fig = Figuren.lijn(autos_per_maand_cum)
 
 col2.plotly_chart(fig)
