@@ -1,2 +1,1 @@
-Hallo dit is een regel tekst.
-Dit is de tweede regel.
+Dit lijndiagram geeft de cumulatieve som van het aantal auto's weer per brandstofcategorie per maand. Zo kan men bijvoorbeeld aflezen dat er op dit moment een kleine 2 miljoen auto's rondrijden die zijn geregistreerd vóór 2010. 
