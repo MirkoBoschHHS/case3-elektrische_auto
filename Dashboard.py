@@ -112,7 +112,7 @@ col1, col2 = st.columns([1,2])
 col2.plotly_chart(Figuren.spreiding(rdw_data))
 print_text("5 - Spreidingsdiagram.txt", col1)
 
-
+del rdw_data
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
