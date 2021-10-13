@@ -37,21 +37,21 @@ laadpaal_data = Get_data.load_csv_laadpaal_data('laadpaaldata.csv')
 
 
 def print_text(file_nr):
-    try:
-        abspath = os.path.abspath(__file__)
-        dname = os.path.dirname(abspath)
-        os.chdir(dname)
+    #try:
+        #abspath = os.path.abspath(__file__)
+        #dname = os.path.dirname(abspath)
+        #os.chdir(dname)
 
-        files = str(glob('https://github.com/MirkoBoschHHS/case3-elektrische_auto/tree/main/Text_bestanden/' + str(file_nr) + ' -*'))
-        file = files.split("\\")[-1].replace("\"]", "").replace("']", "")
-        title = file.replace(".txt", "").split("-")[-1]
+    files = str(glob('https://github.com/MirkoBoschHHS/case3-elektrische_auto/tree/main/Text_bestanden/' + str(file_nr) + ' -*'))
+    file = files.split("\\")[-1].replace("\"]", "").replace("']", "")
+    title = file.replace(".txt", "").split("-")[-1]
 
-        with open('Text_bestanden/' + file) as f:
-            lines = f.readlines()
+    with open('Text_bestanden/' + file) as f:
+        lines = f.readlines()
 
-        return title, lines
-    except:
-        return "NO TITLE", "NO TEXT"
+    return title, lines
+    #except:
+        #return "NO TITLE", "NO TEXT"
     # for row in lines:
     #     col.write(row)
 
