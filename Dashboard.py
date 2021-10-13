@@ -125,7 +125,7 @@ print_text("6 - Lijndiagram voorspelling.txt", col1)
 
 
 
-if(country == "NL"):
+if(country == "NL" and False):
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Laadpunten verdeling per provincie")
