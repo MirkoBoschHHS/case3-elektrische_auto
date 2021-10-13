@@ -1,1 +1,1 @@
-Dit lijndiagram geeft de cumulatieve som van het aantal auto's weer per brandstofcategorie per maand. Zo kan men bijvoorbeeld aflezen dat er op dit moment een kleine 2 miljoen auto's rondrijden die zijn geregistreerd vóór 2010. 
+Dit lijndiagram geeft de cumulatieve som van het aantal auto's weer per brandstofcategorie per maand. Zo kan men bijvoorbeeld aflezen dat er op dit moment ongeveer 8 miljoen benzine-auto's rondrijden en ongeveer 1 miljoen dieselauto's die geregistreerd zijn vóór 2014.  
