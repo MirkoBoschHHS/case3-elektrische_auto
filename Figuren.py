@@ -65,7 +65,7 @@ def histogram_laadtijd_elek_auto(laadpaal_data):
     fig.update_layout(
         autosize=False,
         width=breed,
-        height=550, )
+        height=hoog, )
 
     return fig
 
