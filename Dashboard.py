@@ -51,7 +51,7 @@ def print_text(file, col):
 
 
 # ---------- Histogram van laadtijd ----------
-st.header("Een title")
+st.header("Verdeling laadtijden")
 col1, col2 = st.columns([1,2])
 print_text("1 - Laadtijd auto.txt", col1)
 col2.plotly_chart(Figuren.histogram_laadtijd_elek_auto(laadpaal_data))
@@ -60,7 +60,7 @@ col2.plotly_chart(Figuren.histogram_laadtijd_elek_auto(laadpaal_data))
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-st.header("Een title")
+st.header("Locatie laadpalen")
 col1, col2 = st.columns([1,2])
 response_dataframe, country = Get_data.OpenChargeMap(col1, max_results)
 
@@ -87,7 +87,7 @@ bar.empty()
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-st.header("Een title")
+st.header("Aantal soorten auto's")
 col1, col2 = st.columns([1,2])
 autos_per_maand_cum, rdw_data = Get_data.rdw_data()
 fig = Figuren.lijn(autos_per_maand_cum)
@@ -98,7 +98,7 @@ print_text("3 - Lijndiagram cumulatief.txt", col1)
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-st.header("Een title")
+st.header("Verdeling auto soorten")
 col1, col2 = st.columns([1,2])
 col1.write("Hier nog een tekst of interactie")
 col2.plotly_chart(Figuren.percentage_auto_soort(autos_per_maand_cum))
@@ -107,7 +107,7 @@ print_text("4 - Percentage auto.txt", col1)
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-st.header("Een title")
+st.header("Verhouden elektrische/niet-elektrische auto's")
 col1, col2 = st.columns([1,2])
 col2.plotly_chart(Figuren.spreiding(rdw_data))
 print_text("5 - Spreidingsdiagram.txt", col1)
@@ -116,7 +116,7 @@ print_text("5 - Spreidingsdiagram.txt", col1)
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
-st.header("Een title")
+st.header("Voorspelling")
 col1, col2 = st.columns([1,2])
 col2.plotly_chart(Figuren.voorspelling())
 print_text("6 - Lijndiagram voorspelling.txt", col1)
@@ -128,8 +128,7 @@ print_text("6 - Lijndiagram voorspelling.txt", col1)
 if(country == "NL"):
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
-    title, lines = print_text(7)
-    st.header(title)
+    st.header("Laadpunten verdeling per provincie")
     col1, col2 = st.columns([1,2])
     col2.plotly_chart(Figuren.bar_chart_laadpalen(response_dataframe))
     col2.plotly_chart(Figuren.lijn_laadpalen(response_dataframe))
