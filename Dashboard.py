@@ -116,7 +116,7 @@ if True:
 
 del rdw_data
 
-if True:
+if False:
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
     st.header("Voorspelling percntage elektrische auto's")
