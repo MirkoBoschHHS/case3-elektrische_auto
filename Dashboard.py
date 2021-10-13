@@ -38,6 +38,10 @@ laadpaal_data = Get_data.load_csv_laadpaal_data('laadpaaldata.csv')
 
 def print_text(file_nr):
     try:
+        abspath = os.path.abspath(__file__)
+        dname = os.path.dirname(abspath)
+        os.chdir(dname)
+
         files = str(glob('Text_bestanden/' + str(file_nr) + ' -*'))
         file = files.split("\\")[-1].replace("\"]", "").replace("']", "")
         title = file.replace(".txt", "").split("-")[-1]
