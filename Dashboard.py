@@ -53,7 +53,7 @@ def print_text(file, col):
 # ---------- Histogram van laadtijd ----------
 st.header("Een title")
 col1, col2 = st.columns([1,2])
-print_text("1 - Laadtijd auto.txt")
+print_text("1 - Laadtijd auto.txt", col1)
 col2.plotly_chart(Figuren.histogram_laadtijd_elek_auto(laadpaal_data))
 
 
