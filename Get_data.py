@@ -14,17 +14,17 @@ def OpenChargeMap(col, max_results=50):
   # Max results to load with api
   key = "7854aa82-723c-48d4-afb4-3c437a9db1c9"
 
-  country = col.radio(
-    "Kies een landcode", countries)#, ["NL"])
+  # country = col.radio(
+  #   "Kies een landcode", countries)#, ["NL"])
 
 
-  if not country:
-        st.error("Please select at least one station.")
-        return response_dataframe
-  else:
-    response_dataframe = pd.DataFrame({})
+  # if not country:
+  #       st.error("Please select at least one station.")
+  #       return response_dataframe
+  # else:
+  #   response_dataframe = pd.DataFrame({})
 
-
+  country = 'NL'
   # for country_code in country:
   #Get data
   # url = r'https://api.openchargemap.io/v3/poi/?key=7854aa82-723c-48d4-afb4-3c437a9db1c9?output=kml&countrycode=NL&maxresults=2'
