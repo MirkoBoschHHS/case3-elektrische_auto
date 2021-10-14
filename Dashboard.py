@@ -105,28 +105,30 @@ if True:
     # ---------- Voeg de map van locaties toe ----------
     st.header("Locatie laadpalen")
     col1, col2 = st.columns([1,2])
-    response_dataframe, country = Get_data.OpenChargeMap(col1, max_results)
+    response_dataframe = Get_data.OpenChargeMap(col1, max_results)
 
 
-    providers = response_dataframe['OperatorInfo.Title'].unique()
+    # providers = response_dataframe['OperatorInfo.Title'].unique()
 
     # provider_choice = col1.multiselect(
     #     "Kies een provider", providers, providers)
-    provider_choice = providers
+    # provider_choice = providers
 
     # response_dataframe_choice = response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)]
 
-    m, bar = Figuren.map_folium(response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)], max_results)
+    # m, bar = Figuren.map_folium(response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)], max_results)
+    m = Figuren.map_folium(response_dataframe, max_results)
 
     # print_text(col1, '2 - Laadtijd auto.txt')
     print_text("2 - Laadtijd auto.txt", col1)
 
-    bar.progress(99)
+    # bar.progress(99)
     with col2:
         folium_static(m)
-    bar.progress(100)
-    bar.empty()
+    # bar.progress(100)
+    # bar.empty()
 
+country = 'NL'
 
 if(country == "NL" and True):
     st.markdown("""---""")

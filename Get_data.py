@@ -34,7 +34,7 @@ def OpenChargeMap(col, max_results=50):
   response_json = json.loads(response.text)
   response_dataframe = pd.concat([response_dataframe, pd.json_normalize(response.json())])
   # st.write(url)
-  return response_dataframe, country
+  return response_dataframe#, country
 
 @st.cache
 def load_csv_laadpaal_data(path):

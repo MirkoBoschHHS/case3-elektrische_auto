@@ -254,6 +254,7 @@ def add_categorical_legend(folium_map, title, colors, labels):
 
     return folium_map
 
+
 def map_folium(response_dataframe, max_results):
     sw = response_dataframe[['AddressInfo.Latitude', 'AddressInfo.Longitude']].quantile(0.05).values.tolist()
     ne = response_dataframe[['AddressInfo.Latitude', 'AddressInfo.Longitude']].quantile(0.95).values.tolist()
@@ -285,10 +286,10 @@ def map_folium(response_dataframe, max_results):
             value = 98
         bar.progress(value)
 
-
+    bar.empty()
 
     m.fit_bounds([sw, ne]) # Center map
-    return m ,bar
+    return m# ,bar
 
 
 
