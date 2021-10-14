@@ -6,11 +6,11 @@ import streamlit as st
 
 countries = ['NL', 'FR', 'DE', 'BE']
 
-response_dataframe = 0
+# response_dataframe = 0
 
 @st.cache
 def OpenChargeMap(col, max_results=50):
-  global response_dataframe
+  # global response_dataframe
   # Max results to load with api
   key = "7854aa82-723c-48d4-afb4-3c437a9db1c9"
 
@@ -32,7 +32,7 @@ def OpenChargeMap(col, max_results=50):
   # url = 'https://api.openchargemap.io/v3/poi/?output=json&countrycode=' + str(country_code) + '&maxresults=' + str(max_results) + '&compact=true&verbose=false&key=' + str(key) + ')'
   response = requests.get(url)
   response_json = json.loads(response.text)
-  response_dataframe = pd.concat([response_dataframe, pd.json_normalize(response.json())])
+  response_dataframe = pd.json_normalize(response_json.json())
   # st.write(url)
   return response_dataframe, country
 
