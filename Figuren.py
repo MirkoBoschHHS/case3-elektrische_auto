@@ -293,14 +293,17 @@ def map_folium(response_dataframe, max_results):
 
 
 #---------------------------------------------------
-
-
-def lijn(autos_per_maand_cum):
+@st.cache
+def lijn_auto(autos_per_maand_cum):
     autos_per_maand_cum.reset_index(drop=False, inplace=True)
     autos_per_maand_cum['Jaar'] = autos_per_maand_cum['Tijd in jaren'].astype(int)
     autos_per_maand_cum['Maand'] = (
-                (autos_per_maand_cum['Tijd in jaren'] - autos_per_maand_cum['Jaar'] + 1 / 12) * 12).astype(int)
+            (autos_per_maand_cum['Tijd in jaren'] - autos_per_maand_cum['Jaar'] + 1 / 12) * 12).astype(int)
     autos_per_maand_cum.rename(columns={'Teller': "Aantal auto's"}, inplace=True)
+    return autos_per_maand_cum
+
+def lijn(autos_per_maand_cum):
+    autos_per_maand_cum = lijn_auto(autos_per_maand_cum)
 
     fig = px.line(autos_per_maand_cum,
                   x='Tijd in jaren',
@@ -321,18 +324,27 @@ def lijn(autos_per_maand_cum):
 
 
 #---------------------------------------------------
-
-def percentage_auto_soort(autos_per_maand_cum):
-    rdw_data_select = autos_per_maand_cum.loc[:,['Tijd in jaren','Brandstof',"Aantal auto's"]]
+@st.cache
+def p_a_s(autos_per_maand_cum):
+    rdw_data_select = autos_per_maand_cum.loc[:, ['Tijd in jaren', 'Brandstof', "Aantal auto's"]]
     data = rdw_data_select.pivot(index='Tijd in jaren', columns='Brandstof', values="Aantal auto's")
     data['Overig'] = data['Overig'].fillna(0)
-    data["% Elektrische auto's"] = data['Elektriciteit'] / (data['Benzine']+data['Diesel']+data['Elektriciteit']+data['LPG']+data['Overig']) * 100
-    data["% Benzine auto's"] = data['Benzine'] / (data['Benzine']+data['Diesel']+data['Elektriciteit']+data['LPG']+data['Overig']) * 100
-    data["% Diesel auto's"] = data['Diesel'] / (data['Benzine']+data['Diesel']+data['Elektriciteit']+data['LPG']+data['Overig']) * 100
-    data["% LPG auto's"] = data['LPG'] / (data['Benzine']+data['Diesel']+data['Elektriciteit']+data['LPG']+data['Overig']) * 100
-    data["% Overig auto's"] = data['Overig'] / (data['Benzine']+data['Diesel']+data['Elektriciteit']+data['LPG']+data['Overig']) * 100
-    data['controle'] = data["% Elektrische auto's"] + data["% Benzine auto's"] + data["% Diesel auto's"] + data["% LPG auto's"] + data["% Overig auto's"]
+    data["% Elektrische auto's"] = data['Elektriciteit'] / (
+                data['Benzine'] + data['Diesel'] + data['Elektriciteit'] + data['LPG'] + data['Overig']) * 100
+    data["% Benzine auto's"] = data['Benzine'] / (
+                data['Benzine'] + data['Diesel'] + data['Elektriciteit'] + data['LPG'] + data['Overig']) * 100
+    data["% Diesel auto's"] = data['Diesel'] / (
+                data['Benzine'] + data['Diesel'] + data['Elektriciteit'] + data['LPG'] + data['Overig']) * 100
+    data["% LPG auto's"] = data['LPG'] / (
+                data['Benzine'] + data['Diesel'] + data['Elektriciteit'] + data['LPG'] + data['Overig']) * 100
+    data["% Overig auto's"] = data['Overig'] / (
+                data['Benzine'] + data['Diesel'] + data['Elektriciteit'] + data['LPG'] + data['Overig']) * 100
+    data['controle'] = data["% Elektrische auto's"] + data["% Benzine auto's"] + data["% Diesel auto's"] + data[
+        "% LPG auto's"] + data["% Overig auto's"]
+    return data
 
+def percentage_auto_soort(autos_per_maand_cum):
+    data = p_a_s(autos_per_maand_cum)
     fig = px.line(data, x=data.index, y=["% Benzine auto's", "% Diesel auto's",
     "% Elektrische auto's", "% LPG auto's",
     "% Overig auto's"],
