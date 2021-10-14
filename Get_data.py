@@ -8,7 +8,7 @@ countries = ['NL', 'FR', 'DE', 'BE']
 
 response_dataframe = 0
 
-
+@st.cache
 def OpenChargeMap(col, max_results=50):
   global response_dataframe
   # Max results to load with api
