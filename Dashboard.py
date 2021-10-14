@@ -57,46 +57,6 @@ print_text("1 - Laadtijd auto.txt", col1)
 col2.plotly_chart(Figuren.histogram_laadtijd_elek_auto(laadpaal_data))
 
 
-if True:
-    st.markdown("""---""")
-    # ---------- Voeg de map van locaties toe ----------
-    st.header("Locatie laadpalen")
-    col1, col2 = st.columns([1,2])
-    response_dataframe, country = Get_data.OpenChargeMap(col1, max_results)
-
-
-    providers = response_dataframe['OperatorInfo.Title'].unique()
-
-    provider_choice = col1.multiselect(
-        "Kies een provider", providers, providers)
-
-    # response_dataframe_choice = response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)]
-
-    m, bar = Figuren.map_folium(response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)], max_results)
-
-    # print_text(col1, '2 - Laadtijd auto.txt')
-    print_text("2 - Laadtijd auto.txt", col1)
-
-    bar.progress(99)
-    with col2:
-        folium_static(m)
-    bar.progress(100)
-    bar.empty()
-
-
-if(country == "NL" and True):
-    st.markdown("""---""")
-    # ---------- Voeg de map van locaties toe ----------
-    st.header("Laadpunten verdeling per provincie")
-    col1, col2 = st.columns([1,2])
-    col2.plotly_chart(Figuren.bar_chart_laadpalen(response_dataframe))
-    col2.plotly_chart(Figuren.lijn_laadpalen(response_dataframe))
-    print_text("7 - Laadpunten Nederland.txt", col1)
-else:
-    st.write("Alleen landcode supported voor meer informatie. Nu geselecteerd: " + str(country))
-
-
-del response_dataframe
 
 st.markdown("""---""")
 # ---------- Voeg de map van locaties toe ----------
@@ -140,6 +100,46 @@ if True:
 
 
 
+if True:
+    st.markdown("""---""")
+    # ---------- Voeg de map van locaties toe ----------
+    st.header("Locatie laadpalen")
+    col1, col2 = st.columns([1,2])
+    response_dataframe, country = Get_data.OpenChargeMap(col1, max_results)
+
+
+    providers = response_dataframe['OperatorInfo.Title'].unique()
+
+    provider_choice = col1.multiselect(
+        "Kies een provider", providers, providers)
+
+    # response_dataframe_choice = response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)]
+
+    m, bar = Figuren.map_folium(response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)], max_results)
+
+    # print_text(col1, '2 - Laadtijd auto.txt')
+    print_text("2 - Laadtijd auto.txt", col1)
+
+    bar.progress(99)
+    with col2:
+        folium_static(m)
+    bar.progress(100)
+    bar.empty()
+
+
+if(country == "NL" and True):
+    st.markdown("""---""")
+    # ---------- Voeg de map van locaties toe ----------
+    st.header("Laadpunten verdeling per provincie")
+    col1, col2 = st.columns([1,2])
+    col2.plotly_chart(Figuren.bar_chart_laadpalen(response_dataframe))
+    col2.plotly_chart(Figuren.lijn_laadpalen(response_dataframe))
+    print_text("7 - Laadpunten Nederland.txt", col1)
+else:
+    st.write("Alleen landcode supported voor meer informatie. Nu geselecteerd: " + str(country))
+
+
+del response_dataframe
 
 
 
