@@ -326,7 +326,7 @@ def lijn(autos_per_maand_cum):
 
 
 #---------------------------------------------------
-@st.cache(suppress_st_warning=True, allow_output_mutation=True)
+@st.cache
 def p_a_s(autos_per_maand_cum):
     rdw_data_select = autos_per_maand_cum.loc[:, ['Tijd in jaren', 'Brandstof', "Aantal auto's"]]
     data = rdw_data_select.pivot(index='Tijd in jaren', columns='Brandstof', values="Aantal auto's")
@@ -345,7 +345,7 @@ def p_a_s(autos_per_maand_cum):
         "% LPG auto's"] + data["% Overig auto's"]
     return data
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True)
+@st.cache
 def percentage_auto_soort(autos_per_maand_cum):
     data = p_a_s(autos_per_maand_cum)
     fig = px.line(data, x=data.index, y=["% Benzine auto's", "% Diesel auto's",
