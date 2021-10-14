@@ -117,7 +117,7 @@ if True:
     col2.plotly_chart(Figuren.percentage_auto_soort(autos_per_maand_cum))
     print_text("4 - Percentage auto.txt", col1)
 
-del autos_per_maand_cum
+# del autos_per_maand_cum
 
 if True:
     st.markdown("""---""")
@@ -127,12 +127,12 @@ if True:
     col2.plotly_chart(Figuren.spreiding(rdw_data))
     print_text("5 - Spreidingsdiagram.txt", col1)
 
-del rdw_data
+# del rdw_data
 
 if True:
     st.markdown("""---""")
     # ---------- Voeg de map van locaties toe ----------
-    st.header("Voorspelling percntage elektrische auto's")
+    st.header("Voorspelling percentage elektrische auto's")
     col1, col2 = st.columns([1,2])
     col2.plotly_chart(Figuren.voorspelling())
     print_text("6 - Lijndiagram voorspelling.txt", col1)
