@@ -302,6 +302,7 @@ def lijn_auto(autos_per_maand_cum):
     autos_per_maand_cum.rename(columns={'Teller': "Aantal auto's"}, inplace=True)
     return autos_per_maand_cum
 
+@st.cache
 def lijn(autos_per_maand_cum):
     autos_per_maand_cum = lijn_auto(autos_per_maand_cum)
 
@@ -343,6 +344,7 @@ def p_a_s(autos_per_maand_cum):
         "% LPG auto's"] + data["% Overig auto's"]
     return data
 
+@st.cache
 def percentage_auto_soort(autos_per_maand_cum):
     data = p_a_s(autos_per_maand_cum)
     fig = px.line(data, x=data.index, y=["% Benzine auto's", "% Diesel auto's",
