@@ -110,8 +110,9 @@ if True:
 
     providers = response_dataframe['OperatorInfo.Title'].unique()
 
-    provider_choice = col1.multiselect(
-        "Kies een provider", providers, providers)
+    # provider_choice = col1.multiselect(
+    #     "Kies een provider", providers, providers)
+    provider_choice = providers
 
     # response_dataframe_choice = response_dataframe.loc[response_dataframe['OperatorInfo.Title'].isin(provider_choice)]
 
@@ -143,4 +144,4 @@ del response_dataframe
 
 
 
-st.write("Done")
+# st.write("Done")
