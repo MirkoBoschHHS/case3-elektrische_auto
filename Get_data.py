@@ -32,7 +32,7 @@ def OpenChargeMap(col, max_results=50):
   # url = 'https://api.openchargemap.io/v3/poi/?output=json&countrycode=' + str(country_code) + '&maxresults=' + str(max_results) + '&compact=true&verbose=false&key=' + str(key) + ')'
   response = requests.get(url)
   response_json = json.loads(response.text)
-  response_dataframe = pd.json_normalize(response_json.json())
+  response_dataframe = pd.json_normalize(response.json())
   # st.write(url)
   return response_dataframe, country
 
